@@ -47,8 +47,10 @@ function FeatureItem({ title, description, align, className = "" }) {
 
   return (
     <div
-      className={`flex max-w-[280px] flex-col ${
-        isRight ? "text-left items-start" : "text-right items-end"
+      className={`flex max-w-[280px] flex-col text-left items-start ${
+        isRight
+          ? "lg:text-left lg:items-start"
+          : "lg:text-right lg:items-end"
       } ${className}`}
     >
       <h3 className="text-xl font-bold text-[#0F172A]">{title}</h3>
@@ -71,15 +73,26 @@ export default function KeyFeatures() {
       </div>
 
       {/* Main Container */}
-      <div className="relative mx-auto mt-16 max-w-6xl px-6 min-h-[620px] flex flex-col items-center justify-center lg:block">
+      <div className="relative mx-auto mt-16 max-w-6xl px-6 min-h-[620px] flex flex-col items-start justify-center lg:block">
         
-        {/* Center Mobile Mockup */}
-        <div className="flex justify-center items-center py-6 lg:py-0 lg:h-full">
-          <img
-            src="/images/features-visual.png"
-            alt="Trade Savvy app features preview"
-            className="w-2xl max-w-2xl object-contain drop-shadow-xl"
-          />
+        {/* Center Mobile Mockup / Feature Visual */}
+        <div className="w-full py-6 lg:py-0 lg:h-full">
+          {/* Mobile Display */}
+          <div className="block lg:hidden text-center py-4 font-semibold text-[#0F172A]">
+ <img
+              src="/images/featurevisual1.png"
+              alt="Trade Savvy app features preview"
+              className="w-2xl max-w-2xl object-contain drop-shadow-xl"
+            />          </div>
+
+          {/* Desktop Display */}
+          <div className="hidden lg:flex justify-center items-center h-full">
+            <img
+              src="/images/features-visual.png"
+              alt="Trade Savvy app features preview"
+              className="w-2xl max-w-2xl object-contain drop-shadow-xl"
+            />
+          </div>
         </div>
 
         {/* Left Features */}
@@ -90,7 +103,7 @@ export default function KeyFeatures() {
         </div>
 
         {/* Right Features */}
-        <div className="flex flex-col gap-2 w-full lg:contents mt-8 lg:mt-0">
+        <div className="flex flex-col gap-8 w-full lg:contents mt-8 lg:mt-0">
           {rightFeatures.map((feature, idx) => (
             <FeatureItem key={idx} {...feature} align="right" />
           ))}
