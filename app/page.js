@@ -5,6 +5,7 @@ import KeyFeatures from "@/components/KeyFeatures";
 import EarnMoney from "@/components/EarnMoney";
 import GetStarted from "@/components/GetStarted";
 import AppInAction from "@/components/AppInAction";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -17,7 +18,9 @@ export default function Home() {
       <EarnMoney />
       <GetStarted />
       <AppInAction />
+      <ContactForm />
       <Footer />
     </main>
   );
 }
+

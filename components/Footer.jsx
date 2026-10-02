@@ -1,17 +1,26 @@
+import Link from "next/link";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 
-const companyLinks = ["About us", "Contact us", "Blog"];
-const supportLinks = ["Terms of Service", "Privacy Policy"];
+const companyLinks = [
+  { label: "About us", href: "/#about" },
+  { label: "Contact us", href: "/#contact" },
+  { label: "Blog", href: "#" },
+];
+
+const supportLinks = [
+  { label: "Terms and Conditions", href: "/terms-and-conditions" },
+  { label: "Privacy Policy", href: "/privacy" },
+];
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-white pt-16 text-navy">
+    <footer className="bg-white pt-16 text-navy">
       <div className="section-px mx-auto grid max-w-6xl grid-cols-1 gap-12 pb-12 sm:grid-cols-3">
         <div>
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             {/* Drop your logo at /public/images/logo.png */}
             <img src="/images/logo.png" alt="Trade Savvy" className="h-auto w-auto" />
-          </div>
+          </Link>
           <p className="mt-4 max-w-xs text-sm text-navy/60">
             Rent, lend, and earn securely within our trusted community.
           </p>
@@ -21,10 +30,10 @@ export default function Footer() {
           <h4 className="text-sm font-semibold">Company</h4>
           <ul className="mt-4 space-y-2 text-sm text-navy/60">
             {companyLinks.map((l) => (
-              <li key={l}>
-                <a href="#" className="hover:text-navy transition-colors">
-                  {l}
-                </a>
+              <li key={l.label}>
+                <Link href={l.href} className="hover:text-navy transition-colors">
+                  {l.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -34,10 +43,10 @@ export default function Footer() {
           <h4 className="text-sm font-semibold">Support</h4>
           <ul className="mt-4 space-y-2 text-sm text-navy/60">
             {supportLinks.map((l) => (
-              <li key={l}>
-                <a href="#" className="hover:text-navy transition-colors">
-                  {l}
-                </a>
+              <li key={l.label}>
+                <Link href={l.href} className="hover:text-navy transition-colors">
+                  {l.label}
+                </Link>
               </li>
             ))}
           </ul>
